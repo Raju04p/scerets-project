@@ -3,13 +3,14 @@
 import express from "express";
 import axios from "axios";
 
+
 // 2. Create an express app and set the port number.
 const app = express();
 const port = process.env.PORT || 9001;
 // 3. Use the public folder for static files.
 app.use(express.static("public"));
 // 4. When the user goes to the home page it should render the index.ejs file.
-app.get( "/", async (req, res ) => {
+app.get("/home", async (req, res ) => {
     try{
         const result = await axios.get("https://secrets-api.appbrewery.com/random");
         res.render("index.ejs",{
